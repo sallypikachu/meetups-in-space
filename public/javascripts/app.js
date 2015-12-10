@@ -10,8 +10,6 @@ $('#create_meetup_form').on("submit", function(event) {
 
   errorMessage += valid(meetup)
 
-  debugger;
-
   if (!empty(errorMessage)) {
     alert("Missing fields:" + errorMessage)
   } else {
@@ -46,7 +44,7 @@ submitMeetupViaAjax = function(meetup){
 
   request.done(function(responseData){
     var li = "<li>" + meetup[0] + "</li><p>" + meetup[1] + " [" + meetup[2] + "]</p>"
-    $("ul").append(li)
+    $(".meetups").append(li)
   })
 }
 
@@ -54,7 +52,6 @@ $("#join_meetup_form").on("submit", function(event){
   event.preventDefault();
 
   meetup_id = $("#join_meetup_form").attr('meetup_id');
-  debugger;
   submitJoinMeetupViaAjax(meetup_id);
 });
 
@@ -66,6 +63,6 @@ var submitJoinMeetupViaAjax = function(meetup_id) {
     data: { meetup_id: meetup_id }
   });
   request.done(function(responseData) {
-    alert("You have successfully joined this meetup.");
+    alert("You have successfully joined this meetup.\nReload page to see your membership!");
   });
 }

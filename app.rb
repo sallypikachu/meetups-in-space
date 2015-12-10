@@ -46,6 +46,6 @@ end
 post '/meetup/:id' do
   @meetup = Meetup.where(id: params[:id])[0]
   @members = @meetup.users
-  binding.pry
+  @meetup.users << current_user 
   erb :'meetups/meetup'
 end

@@ -5,7 +5,7 @@
 #
 #   Person.create(first_name: 'Eric', last_name: 'Kelly')
 
-sally = User.create(provider: "github", uid: "1", username: "sallypikachu", email: "sally@gmail.com", avatar_url: "sally.jpg")
+sally = User.create(provider: "github", uid: "1", username: "sally", email: "sally@gmail.com", avatar_url: "sally.jpg")
 michelle = User.create(provider: "github", uid: "2", username: "meidenbee", email: "michelle@gmail.com", avatar_url: "michelle.jpg")
 fluffy = User.create(provider: "github", uid: "3", username: "im_so_fluffy", email: "fluffy@gmail.com", avatar_url: "fluffy.jpg")
 
