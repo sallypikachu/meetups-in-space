@@ -39,13 +39,17 @@ get '/meetup/:id' do
 end
 
 post '/meetups' do
-
+  binding.pry
+  unless current_user.nil?
+    meetup = Meetup.create(title: params[:title], details: params[:details], tag: params[:tag])
+    meetup.users << current_user
+  end
   redirect '/meetups'
 end
 
 post '/meetup/:id' do
   @meetup = Meetup.where(id: params[:id])[0]
   @members = @meetup.users
-  @meetup.users << current_user 
+  @meetup.users << current_user
   erb :'meetups/meetup'
 end

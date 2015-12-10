@@ -9,11 +9,14 @@ $('#create_meetup_form').on("submit", function(event) {
   var meetup = [$('#meetup_title').val(), $('#meetup_details').val(), $('#meetup_tag').val()]
 
   errorMessage += valid(meetup)
-
-  if (!empty(errorMessage)) {
-    alert("Missing fields:" + errorMessage)
+  if ($('#current_user').val() == "") {
+    alert("You are not signed in!")
   } else {
-    submitMeetupViaAjax(meetup);
+    if (!empty(errorMessage)) {
+      alert("Missing fields:" + errorMessage)
+    } else {
+      submitMeetupViaAjax(meetup);
+    };
   };
 });
 
