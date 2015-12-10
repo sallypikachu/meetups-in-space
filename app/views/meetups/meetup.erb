@@ -1,0 +1,13 @@
+<h1><%= @meetup.title %></h1>
+<p><%= @meetup.details %> [<%= @meetup.tag %>] </p>
+
+<h2>Members</h2>
+<ul>
+  <% @members.each do |member| %>
+  <li> <%= member.username %> </li>
+  <% end %>
+</ul>
+
+<form method="post" meetup_id="<%= @meetup.id %>" action="/meetups/<%= @meetup.id %>" id="join_meetup_form">
+  <input type="submit" value="Join <%= @meetup.title %>"/>
+</form>

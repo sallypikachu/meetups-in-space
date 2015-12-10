@@ -28,5 +28,24 @@ get '/sign_out' do
 end
 
 get '/meetups' do
+  @meetups = Meetup.all
   erb :'meetups/index'
+end
+
+get '/meetup/:id' do
+  @meetup = Meetup.where(id: params[:id])[0]
+  @members = @meetup.users
+  erb :'meetups/meetup'
+end
+
+post '/meetups' do
+
+  redirect '/meetups'
+end
+
+post '/meetup/:id' do
+  @meetup = Meetup.where(id: params[:id])[0]
+  @members = @meetup.users
+  binding.pry
+  erb :'meetups/meetup'
 end
